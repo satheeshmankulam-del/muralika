@@ -199,6 +199,17 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
 .adm-fig img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
 .adm-fig figcaption{position:absolute;left:10px;bottom:8px;font-size:.78rem;color:#fff;background:rgba(0,0,0,.45);padding:2px 8px;border-radius:999px}
 .chembai + .chembai{margin-top:12px}
+/* Performances: two balanced rows */
+.perf{grid-template-columns:1fr!important;gap:32px}
+.up-col{grid-template-columns:1fr 1fr;align-items:stretch}
+.upcoming{align-content:start}
+.adm-fig img{height:auto!important}
+.feat-thumbs img{height:auto!important}
+.past{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:start}
+.past > *{min-width:0}
+.past-notes{display:grid;gap:12px}
+.past-notes .chembai{margin-top:0}
+@media (max-width:820px){.up-col,.past{grid-template-columns:1fr}}
 </style>
 
 <div class="notice"><div class="wrap"><b>Vidyarambham admissions open</b><span class="ml-n">നിങ്ങളുടെ സംഗീത യാത്ര ഇവിടെ ആരംഭിക്കൂ!</span><a href="#enrol">Call +91 79074 65658 →</a></div></div>
@@ -304,6 +315,7 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
           <a class="btn gold" href="#enrol">Call +91 79074 65658</a>
         </article>
         <article class="upcoming">
+          <figure class="adm-fig"><img src="images/gv-gayathri-concert.webp" width="1200" height="800" alt="Gayathri S N in concert at Guruvayur, 2025"><figcaption>Gayathri S N in concert, Guruvayur 2025</figcaption></figure>
           <span class="badge">Upcoming event</span>
           <h3>Dhanumasam Thiruvathira</h3>
           <p class="venue">Sreekanteswaram Temple, Thiruvananthapuram</p>
@@ -312,6 +324,7 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
         </article>
         </div>
         <div class="past">
+          <div class="past-list">
           <h3>Temples where Gayathri has performed</h3>
           <ul class="tlist">
             <li><b>Kollur Mookambika Temple<small>Ganarchana 2025 · Shankarotsavam 2026</small></b><span class="yr">Every year</span></li>
@@ -320,8 +333,12 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
             <li><b>Sree Padmanabhaswamy Temple</b><span class="yr">Lakshadeepam 2025</span></li>
             <li><b>Kuttikadu Devi Temple, Kaimanam</b><span class="yr">Festival 2026</span></li>
           </ul>
+          </div>
+          <div class="past-notes">
+          <h3>Student achievements</h3>
           <div class="chembai"><b>Ujjwala Balyam award 2023</b><span>A Muralika student won the Kerala Government Women &amp; Child Development Department's Ujjwala Balyam award in 2023.</span></div>
           <div class="chembai"><b>Our students at Chembai Sangeetholsavam</b><span>Students from Muralika take part in the Chembai Sangeetholsavam at Guruvayur.</span></div>
+          </div>
         </div>
       </div>
     </div>
