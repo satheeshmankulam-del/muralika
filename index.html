@@ -229,6 +229,42 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
   .nav .btn{padding:9px 16px;font-size:.88rem}
 }
 .adm-link{color:#F2D27A;font-weight:600}
+/* Home gallery highlights */
+.hl{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;aspect-ratio:16/8;max-width:100%}
+.hl .shot{margin:0;border-radius:14px;overflow:hidden;position:relative;height:100%}
+.hl .shot:first-child{grid-row:1/3}
+.hl .shot img{width:100%;height:100%;object-fit:cover;display:block}
+.hl .shot span{position:absolute;left:10px;bottom:10px;font-size:.78rem;font-weight:600;color:#fff;background:rgba(5,10,40,.55);padding:3px 10px;border-radius:999px;text-align:left}
+.g-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;margin-top:24px}
+.g-cta p{color:var(--ink-soft)}
+.g-cta .btns{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:720px){.hl{grid-template-columns:1fr 1fr;grid-template-rows:auto;aspect-ratio:auto}.hl .shot{aspect-ratio:1}.hl .shot:first-child{grid-column:1/3;grid-row:auto;aspect-ratio:16/10}}
+/* Gallery page */
+.g-hero{padding-block:clamp(40px,6vw,72px) 8px}
+.g-hero h1{font-size:clamp(2rem,5vw,3.2rem);color:var(--navy)}
+.g-hero p{color:var(--ink-soft);max-width:60ch;margin-top:10px}
+.chips-nav{display:flex;gap:8px;overflow-x:auto;padding-block:20px 8px;scrollbar-width:thin}
+.chips-nav a{flex:none;font:600 .88rem var(--f-body);padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--navy);text-decoration:none;white-space:nowrap}
+.chips-nav a:hover{border-color:var(--navy)}
+.chips-nav a small{color:var(--ink-soft);font-weight:500;margin-left:4px}
+.album{padding-block:36px;border-top:1px solid var(--line)}
+.album:first-of-type{border-top:0}
+.album-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 16px;margin-bottom:18px}
+.album-head h2{font-size:clamp(1.4rem,3vw,1.9rem);color:var(--navy)}
+.album-head p{color:var(--ink-soft);font-size:.95rem}
+.album-head .n{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--leaf)}
+.grid-a{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.grid-a .shot{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:1}
+.grid-a .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.grid-a .shot:hover img{transform:scale(1.04)}
+@media (max-width:900px){.grid-a{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.grid-a{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+.nav ul a[aria-current="page"]{color:var(--navy);font-weight:600}
+/* Lightbox arrows */
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.15);color:#fff;font-size:1.6rem;cursor:pointer}
+.lb-nav:hover{background:rgba(255,255,255,.3)}
+.lb-prev{left:12px}.lb-next{right:12px}
+.lb-count{color:#cfd5ea;font-size:.8rem}
 </style>
 </head>
 <body>
@@ -237,7 +273,7 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top"><img src="images/muralika-logo-sm.webp" width="240" height="151" alt="Muralika School of Music"></a>
-    <ul><li><a href="#about">About</a></li><li><a href="#classes">Classes</a></li><li><a href="#concerts">Concerts</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#enrol">Contact</a></li></ul>
+    <ul><li><a href="#about">About</a></li><li><a href="#classes">Classes</a></li><li><a href="#concerts">Concerts</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="#enrol">Contact</a></li></ul>
     <a class="btn" href="#enrol">Book a trial</a>
   </div>
 </header>
@@ -370,121 +406,16 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
       <div class="head">
         <p class="eyebrow">Gallery</p>
         <h2>Moments from our stages</h2>
-        <p>Concerts by our students and the Muralika bhajan team. Tap a photo to view it larger.</p>
+        <p>Temple concerts, Vidyarambham and celebrations at the school. Tap a photo to view it larger.</p>
       </div>
-      <div class="albums" role="group" aria-label="Choose an album">
-        <button aria-pressed="true" data-album="vidyarambham26">Vidyarambham 2026 · at the school</button>
-        <button aria-pressed="false" data-album="lakshadeepam">Lakshadeepam 2025 · Padmanabhaswamy Temple</button>
-        <button aria-pressed="false" data-album="mookambika26">Mookambika Ganarchana 2026</button>
-        <button aria-pressed="false" data-album="vidyarambham">Vidyarambham 2025</button>
-        <button aria-pressed="false" data-album="attukal">Attukal Pongala 2025</button>
-        <button aria-pressed="false" data-album="guruvayur">Guruvayur Ganarchana 2025</button>
-        <button aria-pressed="false" data-album="kuttikad">Kuttikadu Devi Temple · 2026</button>
-        <button aria-pressed="false" data-album="mookambika">Mookambika Ganarchana 2025</button>
-        <button aria-pressed="false" data-album="christmas">Christmas 2025 · at the school</button>
-        <button aria-pressed="false" data-album="bhajan">Bhajan team programmes</button>
-      </div>
-      <div class="masonry" id="masonry">
-        <!-- Album: Vidyarambham 2026 at the school -->
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-class-wide.webp" width="1100" height="732" alt="Gayathri S N leading the Vidyarambham 2026 gathering in front of the Muralika banner"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-lighting-lamp.webp" width="732" height="1100" alt="Gayathri S N lighting the nilavilakku at Vidyarambham 2026" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-gayathri-speaking.webp" width="732" height="1100" alt="Gayathri S N speaking to students and parents, Vidyarambham 2026" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-teaching-students.webp" width="1100" height="732" alt="Students and parents singing along with Gayathri S N" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-blessing-girl.webp" width="619" height="1100" alt="A young student receiving dakshina blessings from Gayathri S N" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-blessing-toddler.webp" width="732" height="1100" alt="The youngest student beginning her music journey" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-blessing-boy.webp" width="732" height="1100" alt="A young boy offering dakshina to his teacher" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-blessing-teen.webp" width="732" height="1100" alt="A student receiving blessings at Vidyarambham 2026" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-dakshina.webp" width="732" height="1100" alt="A parent offering dakshina at Vidyarambham 2026" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-blessing-adult-1.webp" width="732" height="1100" alt="An adult student offering dakshina to Gayathri S N" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-blessing-adult-2.webp" width="732" height="1100" alt="Adult students receiving blessings at Vidyarambham" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-blessing-adult-3.webp" width="732" height="1100" alt="A senior student greeting Gayathri S N" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-altar.webp" width="732" height="1100" alt="Saraswati pooja altar with veena, violins, harmonium and guitar" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-altar-wide.webp" width="1100" height="732" alt="The decorated altar and Muralika banner" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-offerings.webp" width="1100" height="732" alt="Offerings and students' books placed for Saraswati pooja" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-instruments.webp" width="732" height="1100" alt="Harmonium and violin kept for pooja" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-young-students.webp" width="732" height="1100" alt="Young students in traditional pattupavada listening closely" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-students-seated.webp" width="1100" height="732" alt="Students and parents seated for the Vidyarambham programme" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-parents.webp" width="1100" height="732" alt="Parents watching the programme" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham26"><img src="images/v26-gayathri-with-guest.webp" width="732" height="1100" alt="Gayathri S N with a guest beside the pooja altar" loading="lazy"></button>
-        <!-- Album: Lakshadeepam 2025, Sree Padmanabhaswamy Temple -->
-        <button class="shot" data-album="lakshadeepam" hidden><img src="images/lk-stage-temple.webp" width="1080" height="1080" alt="Muralika students on stage with the Padmanabhaswamy Temple backdrop, Vande Padmanabham 2025"></button>
-        <button class="shot" data-album="lakshadeepam" hidden><img src="images/lk-stage-banner-2.webp" width="1080" height="1080" alt="Students singing under the Vande Padmanabham banner, 23 December 2025"></button>
-        <button class="shot" data-album="lakshadeepam" hidden><img src="images/lk-students-closeup.webp" width="1080" height="1080" alt="Young Muralika students singing at the Lakshadeepam concert"></button>
-        <button class="shot" data-album="lakshadeepam" hidden><img src="images/lk-memento.webp" width="1080" height="1080" alt="Gayathri S N receiving a memento and ponnada at Vande Padmanabham"></button>
-        <button class="shot" data-album="lakshadeepam" hidden><img src="images/lk-certificate.webp" width="1080" height="1080" alt="Gayathri S N receiving a certificate of appreciation for Muralika School of Music"></button>
-        <button class="shot" data-album="lakshadeepam" hidden><img src="images/lk-blessing.webp" width="1080" height="1080" alt="Students and teachers together on stage after the Lakshadeepam concert"></button>
-        <!-- Album: Mookambika Ganarchana 2026 (Shankarotsavam, 18-20 April 2026) -->
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-full-singing.webp" width="1100" height="733" alt="Gayathri S N leading the full Muralika group at Shankarotsavam 2026, Swarnamukhi stage, Kollur Mookambika" loading="lazy"></button>
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-chariot-group.webp" width="1100" height="733" alt="Muralika students and teachers in front of the Mookambika temple chariot, April 2026" loading="lazy"></button>
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-lamp.webp" width="1100" height="733" alt="Lighting the lamp with Muralika children at Shankarotsavam 2026, Kollur" loading="lazy"></button>
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-children.webp" width="1100" height="733" alt="Muralika children singing on the Swarnamukhi stage, Kollur Mookambika 2026" loading="lazy"></button>
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-adults.webp" width="1100" height="733" alt="Adult students of Muralika singing at Shankarotsavam 2026" loading="lazy"></button>
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-wide-stage.webp" width="1100" height="733" alt="The Muralika group with mridangam and violin at Sri Mookambika Temple, Kollur" loading="lazy"></button>
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-mixed.webp" width="1100" height="733" alt="Children and adults of Muralika performing together, Mookambika 2026" loading="lazy"></button>
-        <button class="shot" data-album="mookambika26" hidden><img src="images/mk26-adults-close.webp" width="1100" height="733" alt="Close-up of Muralika singers at the Shankarotsavam concert" loading="lazy"></button>
-        <!-- Album: Vidyarambham 2025 at the school -->
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-initiation-girl.webp" width="1100" height="733" alt="Gayathri S N guiding a student during the Vidyarambham initiation, 2025" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-initiation-boy.webp" width="733" height="1100" alt="A young student beginning his music journey with Gayathri S N, Vidyarambham 2025" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-gayathri-singing.webp" width="1100" height="733" alt="Gayathri S N singing for students and parents at Vidyarambham 2025" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-hall-wide.webp" width="1100" height="733" alt="Students and families gathered at Muralika School of Music for Vidyarambham 2025" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-altar.webp" width="733" height="1100" alt="Saraswati pooja altar with violins and the Muralika banner" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-full-altar.webp" width="733" height="1100" alt="Veenas, violins, harmonium and music books placed for Saraswati pooja" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-banner.webp" width="733" height="1100" alt="The Muralika School of Music banner decorated for Vidyarambham" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-harmonium-books.webp" width="733" height="1100" alt="Harmonium and Carnatic music books offered at the pooja" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-uruli.webp" width="733" height="1100" alt="Brass uruli with marigolds and lotus, Vidyarambham decoration" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-trophies.webp" width="733" height="1100" alt="Muralika honours for students, including the Kerala Government Ujjwala Balyam 2023 award winner" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-audience.webp" width="1100" height="733" alt="Students and parents at the Vidyarambham programme" loading="lazy"></button>
-        <button class="shot" data-album="vidyarambham" hidden><img src="images/vr-student-speaking.webp" width="1100" height="733" alt="A Muralika student speaking at the Vidyarambham 2025 programme" loading="lazy"></button>
-        <!-- Album: Attukal Pongala 2025 -->
-        <button class="shot" data-album="attukal" hidden><img src="images/at-singing-stage.webp" width="1100" height="734" alt="Gayathri S N leading Muralika students in concert at Attukal Pongala Mahotsavam 2025" loading="lazy"></button>
-        <button class="shot" data-album="attukal" hidden><img src="images/at-group-stage.webp" width="1100" height="734" alt="The full Muralika group with mridangam and violin accompanists on the Attukal festival stage" loading="lazy"></button>
-        <button class="shot" data-album="attukal" hidden><img src="images/at-children-stage.webp" width="1100" height="734" alt="Muralika children seated on stage, ready to sing at Attukal 2025" loading="lazy"></button>
-        <button class="shot" data-album="attukal" hidden><img src="images/at-adults-singing.webp" width="1100" height="734" alt="Adult students of Muralika singing at the Attukal Pongala festival" loading="lazy"></button>
-        <button class="shot" data-album="attukal" hidden><img src="images/at-group-outdoor.webp" width="1100" height="734" alt="Muralika students and teachers together at Attukal Pongala 2025" loading="lazy"></button>
-        <button class="shot" data-album="attukal" hidden><img src="images/at-seated.webp" width="1100" height="734" alt="Students waiting for their turn on the Attukal stage" loading="lazy"></button>
-        <!-- Album: Guruvayur Ganarchana 2025 -->
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-temple-walk.webp" width="1200" height="800" alt="Gayathri S N leading Muralika students and teachers in front of Guruvayur Sri Krishna Temple, Ganarchana 2025" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-gayathri-concert.webp" width="1200" height="800" alt="Gayathri S N singing with violin accompaniment at Guruvayur Ganarchana 2025" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-lamp-lighting.webp" width="800" height="1200" alt="Gayathri S N lighting the nilavilakku before the concert, Guruvayur Devaswom" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-singing-closeup.webp" width="1200" height="800" alt="Muralika singers performing at Guruvayur Ganarchana 2025" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-children-stage.webp" width="1200" height="800" alt="Muralika children singing on stage at Guruvayur Ganarchana 2025" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-bhajan-stage.webp" width="1200" height="800" alt="Adult students singing, led by Gayathri S N, at Guruvayur" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-group-stage.webp" width="1200" height="800" alt="The full Muralika group with accompanists on stage at Guruvayur Ganarchana 2025" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-group-ganapathy.webp" width="1200" height="800" alt="Muralika students and teachers at the Ganapathy Temple, Guruvayur" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-children-ganapathy.webp" width="1200" height="800" alt="Muralika children in traditional pattupavada at Guruvayur" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-teachers-ganapathy.webp" width="1200" height="800" alt="Gayathri S N with adult students at Guruvayur" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-walking.webp" width="1200" height="800" alt="Gayathri S N walking with students at the Guruvayur temple complex" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-prayer.webp" width="1200" height="800" alt="Gayathri S N and students in prayer at Guruvayur" loading="lazy"></button>
-        <button class="shot" data-album="guruvayur" hidden><img src="images/gv-lamp-group.webp" width="1200" height="800" alt="Students gathered as the lamp is lit before the Ganarchana concert" loading="lazy"></button>
-        <!-- Album: Kuttikadu Devi Temple, Kaimanam, annual festival 2026 -->
-        <button class="shot" data-album="kuttikad" hidden><img loading="lazy" src="images/kuttikad-2026-stage.webp" width="1100" height="513" alt="Muralika students and bhajan team performing at the Kuttikadu Devi Temple annual festival, Kaimanam, 2026"></button>
-        <button class="shot" data-album="kuttikad" hidden><img loading="lazy" src="images/kuttikad-2026-closeup.webp" width="1100" height="513" alt="Young Muralika singers leading the programme at Kuttikadu Devi Temple, 2026"></button>
-        <!-- Album: Mookambika Ganarchana 2025 (Shankara Jayanti, Kollur) -->
-        <button class="shot" data-album="mookambika" hidden><img src="images/mk-full-stage.webp" width="1200" height="900" alt="Gayathri S N leading Muralika students on stage at Kollur Mookambika Temple, Ganarchana 2025" loading="lazy"></button>
-        <button class="shot" data-album="mookambika" hidden><img src="images/mk-gayathri-trio.webp" width="1200" height="900" alt="Gayathri S N singing with two students at Mookambika, Shankara Jayanti 2025" loading="lazy"></button>
-        <button class="shot" data-album="mookambika" hidden><img src="images/mk-children-stage.webp" width="1200" height="900" alt="Muralika children singing with mridangam and violin at Kollur Mookambika" loading="lazy"></button>
-        <button class="shot" data-album="mookambika" hidden><img src="images/mk-children-closeup.webp" width="1200" height="900" alt="Young Muralika singers at the Shankara Jayanti celebrations, Mookambika 2025" loading="lazy"></button>
-        <button class="shot" data-album="mookambika" hidden><img src="images/mk-stage-night.webp" width="1200" height="900" alt="Muralika students performing at Mookambika – Kudajadri Shankara Jayanti 2025" loading="lazy"></button>
-        <button class="shot" data-album="mookambika" hidden><img loading="lazy" src="images/mookambika-shankara-jayanti-2025.webp" width="1100" height="602" alt="Muralika students, parents and teachers in front of the temple chariot at Kollur Mookambika, Shankara Jayanti 2025"></button>
-        <!-- Album: Christmas 2025 at the school -->
-        <button class="shot" data-album="christmas" hidden><img src="images/xmas-group-tree.webp" width="1100" height="619" alt="Muralika students and teachers in Santa hats at the school Christmas celebration, 2025" loading="lazy"></button>
-        <button class="shot" data-album="christmas" hidden><img src="images/xmas-seated.webp" width="1100" height="619" alt="Students, parents and teachers together at the Muralika Christmas party 2025" loading="lazy"></button>
-        <button class="shot" data-album="christmas" hidden><img src="images/xmas-selfie.webp" width="1100" height="619" alt="A Christmas selfie with the whole Muralika class, 2025" loading="lazy"></button>
-        <!-- Album: Bhajan team -->
-        <button class="shot" data-album="attukal" hidden><img loading="lazy" src="images/attukal-stage-2025.webp" width="1100" height="825" alt="Muralika bhajan team on stage at Attukal Pongala Mahotsavam 2025"></button>
-        <button class="shot" data-album="bhajan" hidden><img loading="lazy" src="images/red-stage-2.webp" width="1100" height="619" alt="Bhajan team in kasavu sarees before a temple programme"></button>
-        <button class="shot" data-album="bhajan" hidden><img loading="lazy" src="images/violet-night.webp" width="1100" height="825" alt="Bhajan team in violet-bordered sarees at an evening festival"></button>
-        <button class="shot" data-album="attukal" hidden><img loading="lazy" src="images/attukal-yellow.webp" width="1040" height="780" alt="Bhajan team in yellow sarees at the Attukal Pongala festival grounds"></button>
-        <button class="shot" data-album="bhajan" hidden><img loading="lazy" src="images/red-stage-1.webp" width="1400" height="592" alt="Bhajan team with accompanists on stage"></button>
-        <button class="shot" data-album="bhajan" hidden><img loading="lazy" src="images/violet-group.webp" width="1100" height="465" alt="Bhajan team with accompanists at an evening programme"></button>
-      </div>
-      <div class="g-foot">
-        <p style="color:var(--ink-soft)">See more on <b>@muralikaschoolofmusictvm</b></p>
-        <a class="btn line" href="https://www.instagram.com/muralikaschoolofmusictvm" target="_blank" rel="noopener">Follow on Instagram</a>
+      <div class="hl" data-group><button class="shot"><img loading="lazy" src="images/v26-class-wide.webp" width="1100" height="732" alt="Vidyarambham 2026 at Muralika School of Music"><span>Vidyarambham 2026</span></button><button class="shot"><img loading="lazy" src="images/lk-stage-temple.webp" width="1080" height="1080" alt="Muralika students on stage with the Padmanabhaswamy Temple backdrop, Vande Padmanabham 2025"><span>Lakshadeepam 2025</span></button><button class="shot"><img loading="lazy" src="images/gv-gayathri-concert.webp" width="1200" height="800" alt="Gayathri S N in concert at Guruvayur, 2025"><span>Guruvayur 2025</span></button><button class="shot"><img loading="lazy" src="images/mk26-full-singing.webp" width="1100" height="733" alt="Gayathri S N leading the full Muralika group at Shankarotsavam 2026, Swarnamukhi stage, Kollur Mookambika"><span>Mookambika 2026</span></button><button class="shot"><img loading="lazy" src="images/at-group-stage.webp" width="1100" height="734" alt="The full Muralika group with mridangam and violin accompanists on the Attukal festival stage"><span>Attukal 2025</span></button></div>
+      <div class="g-cta">
+        <p><b>93 photos</b> in 10 albums</p>
+        <div class="btns"><a class="btn" href="gallery.html">View full gallery →</a><a class="btn line" href="https://www.instagram.com/muralikaschoolofmusictvm" target="_blank" rel="noopener">Instagram</a></div>
       </div>
     </div>
   </section>
-  <div class="lightbox" id="lightbox" hidden><button class="lb-close" aria-label="Close">×</button><img alt=""><p></p></div>
+  <div class="lightbox" id="lightbox" hidden><button class="lb-close" aria-label="Close">×</button><button class="lb-nav lb-prev" aria-label="Previous photo">‹</button><button class="lb-nav lb-next" aria-label="Next photo">›</button><img alt=""><p></p><span class="lb-count"></span></div>
 
   <section id="enrol">
     <div class="wrap enrol-grid">
@@ -530,19 +461,23 @@ img.photo{object-fit:cover;width:100%;height:auto;padding:0;display:block;box-sh
 <footer><div class="wrap"><span>© 2026 Muralika School of Music · Thiruvananthapuram</span><span><a href="https://www.instagram.com/muralikaschoolofmusictvm" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/share/19gZ9tnCuu/" target="_blank" rel="noopener">Facebook</a></span></div></footer>
 
 <script>
-/* Gallery: albums + lightbox */
-document.querySelectorAll(".albums button").forEach(btn=>btn.addEventListener("click",()=>{
-  const al=btn.dataset.album;
-  document.querySelectorAll(".albums button").forEach(b=>b.setAttribute("aria-pressed",b===btn));
-  document.querySelectorAll("#masonry .shot").forEach(sh=>sh.hidden=sh.dataset.album!==al);
-}));
-const lb=document.getElementById("lightbox"),lbImg=lb.querySelector("img"),lbCap=lb.querySelector("p");
+/* Lightbox with previous / next within the same group */
+const lb=document.getElementById("lightbox"),lbImg=lb.querySelector("img"),lbCap=lb.querySelector("p"),lbCount=lb.querySelector(".lb-count");
+let group=[],idx=0;
+function show(i){idx=(i+group.length)%group.length;const im=group[idx];lbImg.src=im.src;lbImg.alt=im.alt;lbCap.textContent=im.alt;lbCount.textContent=group.length>1?`${idx+1} / ${group.length}`:"";}
 document.addEventListener("click",e=>{
-  const im=e.target.closest(".shot")?.querySelector("img");if(!im)return;
-  lbImg.src=im.src;lbImg.alt=im.alt;lbCap.textContent=im.alt;lb.hidden=false;lb.querySelector(".lb-close").focus();
+  const shot=e.target.closest(".shot");if(!shot)return;
+  const box=shot.closest("[data-group]")||shot.parentElement;
+  group=[...box.querySelectorAll(".shot img")];show(group.indexOf(shot.querySelector("img")));
+  lb.hidden=false;document.body.style.overflow="hidden";lb.querySelector(".lb-close").focus();
 });
-lb.addEventListener("click",e=>{if(e.target!==lbImg)lb.hidden=true;});
-document.addEventListener("keydown",e=>{if(e.key==="Escape")lb.hidden=true;});
+function closeLb(){lb.hidden=true;document.body.style.overflow="";}
+lb.querySelector(".lb-prev").addEventListener("click",e=>{e.stopPropagation();show(idx-1);});
+lb.querySelector(".lb-next").addEventListener("click",e=>{e.stopPropagation();show(idx+1);});
+lb.addEventListener("click",e=>{if(e.target===lb||e.target.classList.contains("lb-close"))closeLb();});
+document.addEventListener("keydown",e=>{if(lb.hidden)return;if(e.key==="Escape")closeLb();if(e.key==="ArrowLeft")show(idx-1);if(e.key==="ArrowRight")show(idx+1);});
+let tx=null;lb.addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passive:true});
+lb.addEventListener("touchend",e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)show(idx+(d<0?1:-1));tx=null;});
 
 /* Booking: Netlify + WhatsApp */
 const WHATSAPP_NUMBER="917907465658";
